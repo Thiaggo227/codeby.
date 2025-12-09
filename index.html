@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Momo+Trust+Display&family=Montserrat:wght@100..900&family=Open+Sans:wght@300..800&family=Roboto:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>CodeBy</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="logo">Code<span class="logo-red">By.</span></h1>
+
+        <div class="clima-desktop">
+            <span id="temperaturaAtual">Carregando clima...</span>
+        </div>
+
+        <nav class="nav-desktop">
+            <ul>
+                <li><a class="nav-link" href="index.html">INÍCIO<i class="bi bi-arrow-clockwise"></i></a></li>
+
+               <li class="calc-dropdown">
+            <a class="nav-link" href="calculadora">CALC<i class="bi bi-calculator-fill"></i></a>
+            <div id="calculator" class="calculator-content">
+                <div id="display" class="calculator-display">0</div>
+                <div class="calculator-keys">
+                    <button class="key-operator" data-action="clear">AC</button>
+                    <button class="key-operator" data-action="backspace">DEL</button>
+                    <button class="key-operator" data-action="percentage">%</button>
+                    <button class="key-operator" data-action="divide">/</button>
+
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="key-operator" data-action="multiply">*</button>
+
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="key-operator" data-action="subtract">-</button>
+
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="key-operator" data-action="add">+</button>
+
+                    <button data-action="decimal">.</button>
+                    <button>0</button>
+                    <button class="key-equal" data-action="calculate">=</button>
+                </div>
+            </div>
+        </li>
+
+                <li><a class="nav-link"
+                        href="https://docs.google.com/spreadsheets/d/1io6wfP4HJckT-lHyhUC066DqFdNTj5BGqzYA9yKDtwc/edit?usp=sharing">RECEITA<i
+                            class="bi bi-coin"></i></a></li>
+                <li><a class="nav-link"
+                        href="https://docs.google.com/spreadsheets/d/1vo4jKQQWByzW1WOcDDvFMalkjvaD4BfuoSTcfhZN6gw/edit?usp=sharing">GASTOS<i
+                            class="bi bi-cash-stack"></i></a></li>
+                <li><a class="nav-link" href="saldo.html">SALDO<i class="bi bi-currency-dollar"></i></a></li>
+                <li><a
+                        href="https://docs.google.com/spreadsheets/d/1JprvAsO9X82y958FbxPz58azlFcagTcSyvNUFU93KuI/edit?usp=sharing">SAÚDE<i
+                            class="bi bi-droplet-fill"></i></a></li>
+            </ul>
+        </nav>
+
+        <button id="menuBtn" class="menu-btn">
+            <i class="bi bi-list"></i>
+        </button>
+    </header>
+
+    <nav id="mobileMenu" class="mobile-nav">
+        <ul>
+            <li><a href="index.html">INÍCIO</a></li>
+            <li><a
+                    href="https://docs.google.com/spreadsheets/d/1io6wfP4HJckT-lHyhUC066DqFdNTj5BGqzYA9yKDtwc/edit?usp=sharing">RECEITA</a>
+            </li>
+            <li><a
+                    href="https://docs.google.com/spreadsheets/d/1vo4jKQQWByzW1WOcDDvFMalkjvaD4BfuoSTcfhZN6gw/edit?usp=sharing">GASTOS</a>
+            </li>
+            <li><a href="saldo.html">SALDO</a></li>
+            <li><a
+                    href="https://docs.google.com/spreadsheets/d/1JprvAsO9X82y958FbxPz58azlFcagTcSyvNUFU93KuI/edit?usp=sharing">SAÚDE</a>
+            </li>
+
+            <li class="clima-mobile">
+                <span id="temperaturaAtualMobile"></span>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Controle Financeiro<br>A chave para uma <span class="red">vida financeira equilibrada</span>.</h1>
+
+        <p>
+            O controle de despesas é essencial para alcançar estabilidade financeira.<br>
+            Registre, organize e analise seus gastos para entender melhor o destino do seu dinheiro.
+        </p>
+    </section>
+
+    <section id="gastos-section" class="card">
+        <h1 class="card-title">
+            CONTROLE DE GASTOS <i class="bi bi-graph-up-arrow red"></i>
+        </h1>
+
+        <div class="form-group">
+            <label>Data</label>
+            <input type="date" id="dataInput" class="input">
+        </div>
+
+        <div class="form-group">
+            <label>Local</label>
+            <input type="text" id="localInput" class="input" placeholder="ex: mercado">
+        </div>
+
+        <div class="form-group">
+            <label>Valor</label>
+            <input type="number" id="valorInput" class="input" placeholder="R$ 00,00">
+        </div>
+
+        <button id="btnRegistrar" class="btn-primary">
+            <span class="button-text">Registrar →</span>
+        </button>
+
+        <div id="mensagemSucesso" class="alert-success">
+            <i class="bi bi-check-circle-fill"></i> Valor gasto registrado com sucesso!
+        </div>
+    </section>
+
+    <main class="receita-container">
+        <h1 class="section-title">
+            Receita para todo valor bruto <br>
+            <span class="red">recebido</span> referente ao mês.
+        </h1>
+
+        <section class="card">
+            <h1 class="card-title">
+                RECEITA <i class="bi bi-coin red"></i>
+            </h1>
+
+            <form id="formReceita">
+
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" name="data" id="dataReceitaInput" class="input" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Valor</label>
+                    <input type="number" name="valor" id="valorReceitaInput" step="0.01" class="input"
+                        placeholder="R$ 00,00" required>
+                </div>
+
+                <button id="btnRegistrarReceita" class="btn-primary" type="submit">
+                    <span class="button-text">Registrar →</span>
+                </button>
+
+                <div id="mensagemSucessoReceita" class="alert-success">
+                    <i class="bi bi-check-circle-fill"></i> Receita registrada com sucesso!
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <main class="cardSaude">
+        <h1 class="textSaude">Controle de hidratação diária</h1>
+        <h3 class="parSaude">Em estatísticas de altura e peso, o consumo ideal <br>de um adulto é de <span
+                class="spnSaude">2,5L de
+                água</span> por dia.</h3>
+        <div class="midSaude">
+            <p class="goal">Meta: 2,500 ml</p>
+
+            <div class="progress-container">
+                <div id="water-fill" class="water-fill">
+                    <span id="current-amount">0 ml</span>
+                </div>
+                <div class="progress-bar-outline"></div>
+            </div>
+
+            <div class="controls">
+                <input type="number" id="input-amount" placeholder="Quantidade em ml (ex: 300)" min="1">
+                <button class="btnSaude" onclick="addConsumption()">Adicionar Consumo</button>
+                <button class="btnSaude" onclick="startNewCycle()">
+                    <i class="bi bi-plus-circle"></i> Novo Ciclo
+                </button>
+
+            </div>
+
+            <p id="status-message" class="status-message"></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Os planos bem elaborados levam à fartura; mas o apressado sempre acaba na miséria.
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

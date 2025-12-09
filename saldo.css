@@ -1,0 +1,291 @@
+/* --------------------------------------------------
+   CONFIGURAÇÃO BASE
+-------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    height: 100vh;
+    padding-top: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #000;
+    box-shadow: 0 0 10px #000; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e7ffff;
+}
+
+header h1 span {
+    color: #ff3030; 
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; 
+}
+
+header ul li a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #e7ffff;
+    position: relative;
+    transition: 0.3s;
+}
+
+header ul li a i {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+header ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #e7ffff;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    transition: 0.3s;
+}
+
+header ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #e7ffff;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95); 
+    backdrop-filter: blur(5px);
+    padding: 20px 0; 
+    gap: 15px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    max-width: none; 
+    transform: translateY(-300px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+}
+.mobile-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.mobile-nav ul li a {
+    color: #e7ffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s; 
+}
+.mobile-nav ul li a:hover {
+    color: #ff3030; 
+}
+.mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.clima-mobile {
+    margin-top: 10px;
+    color: #e7ffff;
+    font-size: 12px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 100px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 8px 24px #000000c9;
+    border: 1px solid #0f285008;
+}
+
+.title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #0b2540;
+    text-align: center;
+}
+
+.balance-area {
+    background: linear-gradient(90deg, #f0f8ff, #ffffff);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(10, 40, 80, 0.04);
+}
+
+.balance-label {
+    font-size: 13px;
+    color: #3b5368;
+    margin-bottom: 6px;
+}
+
+.balance {
+    font-size: 36px;
+    font-weight: 600;
+    color: #0b6b3a;
+    transition: transform 0.15s ease;
+    letter-spacing: 0.5px;
+}
+
+.controls {
+    display: grid;
+    gap: 12px;
+}
+
+.input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(10, 40, 80, 0.15);
+    font-size: 16px;
+    outline: none;
+}
+
+.input:focus {
+    box-shadow: 0 4px 12px rgba(11, 107, 58, 0.08);
+    border-color: rgba(11, 107, 58, 0.25);
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-increase {
+    background: linear-gradient(180deg, #e6f9ef, #d1f0dd);
+    color: #0b6b3a;
+}
+
+.btn-decrease {
+    background: linear-gradient(180deg, #fff6f7, #ffecec);
+    color: #8a1f2a;
+}
+
+.btn-set {
+    background: #f0f4ff;
+    color: #12305a;
+}
+
+.btn-reset {
+    background: #fff7e8;
+    color: #9a5a00;
+}
+
+/* --------------------------------------------------
+   RESPONSIVIDADE (Harmonizada com style.css para o menu funcionar)
+-------------------------------------------------- */
+
+/* Telas até 768px → mostra hambúrguer e esconde menu desktop */
+@media (max-width: 768px) {
+    header ul {
+        display: none; /* Esconde menu desktop */
+    }
+
+    .menu-btn {
+        display: block; /* Mostra botão hambúrguer */
+    }
+
+    /* O mobile-nav é controlado via JS e transform */
+    
+    /* body padding para evitar sobreposição */
+    body {
+        padding: 60px 0 0; /* Apenas padding-top para o header, o container lida com o resto */
+        /* Ajuste do padding do body que havia no original */
+        padding: 90px 20px;
+    }
+}
+
+/* Telas >= 769px: Esconde botão hambúrguer e mostra menu desktop */
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none;
+    }
+    
+    header ul {
+        display: flex;
+    }
+
+    /* Escondemos o mobile-nav completamente em desktop */
+    .mobile-nav { 
+        display: none; 
+    }
+    
+    /* Restaurar padding original do body em telas grandes */
+    body {
+        padding: 24px;
+    }
+}
+
+/* Telas muito pequenas (Restaurado) */
+@media (max-width: 420px) {
+    .balance {
+        font-size: 30px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 9px;
+    }
+}
